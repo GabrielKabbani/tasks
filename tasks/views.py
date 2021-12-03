@@ -19,7 +19,7 @@ def post(request):
         task_serializer.save()
         return resp(task_serializer.data) 
     else:
-        return resp({'Worked': 'Did not work'})
+        return resp(task_serializer.errors, {'Worked': 'Did not work'})
 
 def get(request):
     getee = request.GET.get('title', None)
