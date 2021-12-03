@@ -17,9 +17,7 @@ def post(request):
     task_serializer = TaskSerializer(data=task_data)
     if task_serializer.is_valid():
         task_serializer.save()
-        return resp(task_serializer.data) 
-    else:
-        return resp(task_serializer.errors, {'Worked': 'Did not work'})
+    return resp({'Done': 'Ordered items were posted'})
 
 def get(request):
     getee = request.GET.get('title', None)
